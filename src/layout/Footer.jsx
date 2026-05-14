@@ -74,7 +74,7 @@ const Footer = () => {
 
             <Link
               to="https://www.codes-inc.com/"
-              className="mt-6 inline-flex max-w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="mt-6 hidden max-w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:inline-flex"
             >
               <img
                 src={hostedImg}
@@ -125,9 +125,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-7 flex flex-col gap-4 border-t border-white/12 pt-5 text-[11px] font-medium text-[#8290a7] md:flex-row md:items-center md:justify-between">
+        <div className="mt-7 flex flex-col items-center gap-4 border-t border-white/12 pt-5 text-center text-[11px] font-medium text-[#8290a7] md:flex-row md:items-center md:justify-between md:text-start">
           <p>{t('footer.copyright')}</p>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 md:justify-start">
             {legalLinks.map((link, index) => (
               <Link key={link} to="/" className="transition-colors hover:text-white">
                 {index > 0 && <span className="me-3 text-[#5f6b80]">&bull;</span>}
@@ -136,6 +136,17 @@ const Footer = () => {
             ))}
           </div>
         </div>
+
+        <Link
+          to="https://www.codes-inc.com/"
+          className="mx-auto mt-6 inline-flex max-w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:hidden"
+        >
+          <img
+            src={hostedImg}
+            alt={t('footer.hostedAlt')}
+            className="h-auto w-[244px] max-w-full"
+          />
+        </Link>
       </div>
     </motion.footer>
   )
