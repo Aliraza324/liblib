@@ -5,10 +5,22 @@ import { Trans, useTranslation } from 'react-i18next'
 import { fadeInUp, revealViewport, smoothEase, staggerContainer } from '../../animation/animation'
 import ansIcon from '../../assets/images/ans.png'
 
+const faqIds = [
+  'storage',
+  'pdpl',
+  'private-network',
+  'customization',
+  'meeting-size',
+  'deployment',
+  'arabic-ai',
+  'pricing',
+]
+
 const Faqs = () => {
   const { t } = useTranslation()
   const [openIndex, setOpenIndex] = useState(null)
-  const faqs = t('home.faqs.items', { returnObjects: true })
+  const translatedFaqs = t('home.faqs.items', { returnObjects: true })
+  const faqs = Array.isArray(translatedFaqs) ? translatedFaqs : []
 
   return (
     <motion.section
@@ -56,7 +68,7 @@ const Faqs = () => {
 
             return (
               <motion.article
-                key={faq.question}
+                key={faqIds[index]}
                 className="overflow-hidden rounded-[18px] border border-[#f0dfd0] bg-white shadow-[0_1px_0_rgba(255,255,255,0.9)]"
                 variants={fadeInUp}
               >

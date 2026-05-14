@@ -9,22 +9,27 @@ import visualIcon from '../../assets/images/visual.png'
 
 const features = [
   {
+    id: 'subdomains',
     icon: customIcon,
   },
   {
+    id: 'waiting-rooms',
     icon: brandedIcon,
   },
   {
+    id: 'visual-consistency',
     icon: visualIcon,
   },
   {
+    id: 'mobile-apps',
     icon: mobileIcon,
   },
 ]
 
 const CenterStage = () => {
   const { i18n, t } = useTranslation()
-  const translatedFeatures = t('home.centerStage.items', { returnObjects: true })
+  const translatedFeatureItems = t('home.centerStage.items', { returnObjects: true })
+  const translatedFeatures = Array.isArray(translatedFeatureItems) ? translatedFeatureItems : []
   const hoverOffset = i18n.dir() === 'rtl' ? -4 : 4
 
   return (
@@ -57,7 +62,7 @@ const CenterStage = () => {
           <motion.div className="grid gap-4" variants={staggerContainer}>
             {features.map((feature, index) => (
               <motion.article
-                key={translatedFeatures[index].title}
+                key={feature.id}
                 className="flex min-h-[84px] items-center gap-4 rounded-[14px] border border-[#f0dfd0] bg-[#fff8f4] px-5 shadow-[0_1px_0_rgba(255,255,255,0.9)] sm:px-6"
                 variants={fadeInUp}
                 whileHover={{ x: hoverOffset }}
@@ -68,10 +73,10 @@ const CenterStage = () => {
                 </span>
                 <span className="min-w-0">
                   <h3 className="text-[15px] font-extrabold leading-tight text-[#1d1d22]">
-                    {translatedFeatures[index].title}
+                    {translatedFeatures[index]?.title ?? ''}
                   </h3>
                   <p className="mt-1.5 max-w-[280px] text-[12px] font-medium leading-[1.35] text-[#717987]">
-                    {translatedFeatures[index].description}
+                    {translatedFeatures[index]?.description ?? ''}
                   </p>
                 </span>
               </motion.article>
