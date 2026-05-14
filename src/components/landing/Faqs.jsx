@@ -17,26 +17,33 @@ const faqIds = [
 ]
 
 const Faqs = () => {
-  const { t } = useTranslation()
+  const { i18n, t } = useTranslation()
+  const isRtl = i18n.dir() === 'rtl'
   const [openIndex, setOpenIndex] = useState(null)
   const translatedFaqs = t('home.faqs.items', { returnObjects: true })
   const faqs = Array.isArray(translatedFaqs) ? translatedFaqs : []
 
   return (
     <motion.section
-      className="w-full bg-[#fff8f4] px-5 py-12 sm:px-6 sm:py-14 lg:px-10 lg:py-[70px] xl:px-14"
+      className="w-full bg-[#fff8f4] px-5 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-[70px] xl:px-14"
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"
       viewport={revealViewport}
     >
-      <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[390px_minmax(0,640px)] lg:justify-center lg:gap-5 xl:grid-cols-[535px_minmax(0,680px)] xl:gap-6">
+      <div className="mx-auto grid w-full max-w-7xl gap-6 sm:gap-8 lg:grid-cols-[390px_minmax(0,640px)] lg:justify-center lg:gap-5 xl:grid-cols-[535px_minmax(0,680px)] xl:gap-6">
         <motion.div className="pt-1 lg:pt-5" variants={fadeInUp}>
           <div className="flex items-start gap-3 sm:gap-4">
             <span className="mt-1 flex h-[123px] w-0.5 shrink-0 flex-col items-center bg-[#fb5b22] sm:h-[140px]" />
 
             <div>
-              <h2 className="text-[28px] font-extrabold leading-[1.02] tracking-[-0.045em] text-black min-[420px]:text-[31px] sm:text-[36px] sm:leading-[0.98]">
+              <h2
+                className={`text-[27px] font-extrabold text-black min-[420px]:text-[31px] sm:text-[36px] ${
+                  isRtl
+                    ? 'leading-[1.35] tracking-normal'
+                    : 'leading-[1.14] tracking-[-0.04em] sm:leading-[1.05] sm:tracking-[-0.045em]'
+                }`}
+              >
                 <Trans
                   i18nKey="home.faqs.heading"
                   components={{
@@ -75,7 +82,9 @@ const Faqs = () => {
                 <button
                   type="button"
                   aria-expanded={isOpen}
-                  className="flex min-h-[62px] w-full items-center justify-between gap-4 px-4 text-start text-[14px] font-bold leading-snug text-[#1f1d1c] transition-colors hover:bg-[#fffdfb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fb5b22] sm:gap-5 sm:px-6 sm:text-[15px]"
+                  className={`flex min-h-[62px] w-full items-center justify-between gap-4 px-4 py-3 text-start text-[14px] font-bold text-[#1f1d1c] transition-colors hover:bg-[#fffdfb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fb5b22] sm:gap-5 sm:px-6 sm:text-[15px] ${
+                    isRtl ? 'leading-[1.7]' : 'leading-[1.35]'
+                  }`}
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                 >
                   <span>{faq.question}</span>
@@ -88,13 +97,17 @@ const Faqs = () => {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
-                      className="border-t border-[#f4e6dc] px-5 pb-5 pt-1 sm:px-6"
+                      className="border-t border-[#f4e6dc] px-5 pb-5 pt-3 sm:px-6"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.32, ease: smoothEase }}
                     >
-                      <p className="max-w-[590px] text-[14px] font-medium leading-6 text-[#625a55]">
+                      <p
+                        className={`max-w-[590px] text-[14px] font-medium text-[#625a55] ${
+                          isRtl ? 'leading-[1.85]' : 'leading-6'
+                        }`}
+                      >
                         {faq.answer}
                       </p>
                     </motion.div>

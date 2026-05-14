@@ -21,7 +21,7 @@ const GetStarted = () => {
           </span>
 
           <motion.h2
-            className="mx-auto mt-5 max-w-[520px] text-[34px] font-extrabold leading-[1.14] tracking-[-0.045em] sm:text-[44px]"
+            className="mx-auto mt-5 max-w-[520px] text-[34px] font-extrabold leading-[1.5] tracking-[-0.045em] sm:text-[44px]"
             variants={fadeInUp}
           >
             <Trans

@@ -35,7 +35,8 @@ const cards = [
 ]
 
 const WhyChoose = () => {
-  const { t } = useTranslation()
+  const { i18n, t } = useTranslation()
+  const isRtl = i18n.dir() === 'rtl'
 
   return (
     <motion.section
@@ -55,7 +56,11 @@ const WhyChoose = () => {
               <span className="mt-auto size-2 translate-y-1 rounded-full border-2 border-[#fb5b22] bg-[#fff8f4]" />
             </span>
             <div>
-              <h2 className="text-[34px] font-semibold leading-[1.08] tracking-[-0.045em] text-[#1b1b22] xl:text-[38px]">
+              <h2
+                className={`text-[34px] font-semibold text-[#1b1b22] xl:text-[38px] ${
+                  isRtl ? 'leading-[1.28] tracking-normal' : 'leading-[1.12] tracking-[-0.045em]'
+                }`}
+              >
                 <Trans
                   i18nKey="home.whyChoose.title"
                   components={{
@@ -63,7 +68,11 @@ const WhyChoose = () => {
                   }}
                 />
               </h2>
-              <p className="mt-4 max-w-[205px] text-[16px] leading-[1.02] tracking-[-0.03em] text-[#1e1f25] xl:text-[17px]">
+              <p
+                className={`mt-4 max-w-[230px] text-[16px] text-[#1e1f25] xl:text-[17px] ${
+                  isRtl ? 'leading-[1.65] tracking-normal' : 'leading-[1.35] tracking-[-0.03em]'
+                }`}
+              >
                 <Trans
                   i18nKey="home.whyChoose.description"
                   components={{
@@ -100,12 +109,14 @@ const WhyChoose = () => {
             )}
 
             <div
-              className={`absolute inset-x-0 bottom-0 px-[22px] pb-6 text-white lg:pb-7 ${
+              className={`absolute inset-x-0 bottom-0 px-[22px] pb-7 text-white lg:pb-8 ${
                 card.wide ? 'lg:px-10' : 'lg:px-7'
               }`}
             >
               <h3
-                className={`font-extrabold leading-[0.98] tracking-[-0.05em] ${
+                className={`font-extrabold ${
+                  isRtl ? 'leading-[1.38] tracking-normal' : 'leading-[1.12] tracking-[-0.05em]'
+                } ${
                   card.wide ? 'text-[28px] xl:text-[32px]' : 'text-[28px] xl:text-[32px]'
                 }`}
               >
@@ -118,7 +129,11 @@ const WhyChoose = () => {
                 />
               </h3>
               {card.hasDescription && (
-                <p className="mt-8 text-[16px] font-medium leading-[0.9] tracking-[-0.04em] text-white xl:text-[17px]">
+                <p
+                  className={`mt-7 text-[16px] font-medium text-white xl:text-[17px] ${
+                    isRtl ? 'leading-[1.7] tracking-normal' : 'leading-[1.35] tracking-[-0.04em]'
+                  }`}
+                >
                   <Trans
                     i18nKey={`home.whyChoose.cards.${index}.description`}
                     components={{

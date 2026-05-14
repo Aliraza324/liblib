@@ -13,7 +13,7 @@ const HeroSection = () => {
   return (
     <motion.section
       className={`w-full bg-[#fff8f4] px-4 sm:px-6 lg:px-11 xl:px-14 ${
-        isRtl ? 'pb-8 pt-8 lg:pb-8 lg:pt-4' : 'pb-9 pt-8 lg:pb-10 lg:pt-3'
+        isRtl ? 'pb-8 pt-6 sm:pt-8 lg:pb-8 lg:pt-4' : 'pb-8 pt-6 sm:pb-9 sm:pt-8 lg:pb-10 lg:pt-3'
       }`}
       variants={staggerContainer}
       initial="hidden"
@@ -21,7 +21,7 @@ const HeroSection = () => {
     >
       <div className="mx-auto w-full max-w-7xl">
         <div
-          className={`relative grid items-start gap-8 ${
+          className={`relative grid items-start gap-7 sm:gap-8 ${
             isRtl
               ? 'lg:grid-cols-[310px_minmax(0,620px)] lg:gap-[132px] xl:grid-cols-[320px_minmax(0,620px)] xl:gap-[150px]'
               : 'lg:grid-cols-[410px_minmax(0,1fr)] lg:gap-[194px] xl:grid-cols-[410px_minmax(0,1fr)] xl:gap-[210px]'
@@ -30,7 +30,7 @@ const HeroSection = () => {
           <motion.div className="min-w-0" variants={staggerContainer}>
             <motion.div
               className={`flex items-center gap-2 min-[420px]:gap-3 sm:gap-4 ${
-                isRtl ? 'mb-5 lg:justify-start' : 'mb-7'
+                isRtl ? 'mb-4 sm:mb-5 lg:justify-start' : 'mb-5 sm:mb-7'
               }`}
               variants={fadeInDown}
             >
@@ -60,8 +60,8 @@ const HeroSection = () => {
               <h1
                 className={`font-extrabold text-[#1c1b20] ${
                   isRtl
-                    ? 'max-w-[290px] text-justify text-[44px] leading-[1.14] tracking-normal min-[420px]:text-[50px] lg:text-[52px]'
-                    : 'max-w-[410px] text-[48px] leading-[0.98] tracking-[-0.06em] min-[420px]:text-6xl lg:text-[74px]'
+                    ? 'max-w-[290px] text-justify text-[38px] leading-[1.18] tracking-normal min-[420px]:text-[44px] sm:text-[50px] lg:text-[52px]'
+                    : 'max-w-[410px] text-[40px] leading-[1.04] tracking-[-0.045em] min-[420px]:text-5xl sm:text-6xl sm:leading-[0.98] sm:tracking-[-0.06em] lg:text-[74px]'
                 }`}
               >
                 {isRtl ? (
@@ -78,7 +78,7 @@ const HeroSection = () => {
 
             <motion.div
               className={`flex items-center gap-2 min-[420px]:gap-3 sm:gap-4 ${
-                isRtl ? 'mt-5' : 'mt-6'
+                isRtl ? 'mt-4 sm:mt-5' : 'mt-5 sm:mt-6'
               }`}
               variants={fadeInUp}
             >
@@ -86,8 +86,8 @@ const HeroSection = () => {
                 type="button"
                 className={`inline-flex shrink-0 items-center justify-center rounded-lg bg-[#fb5b22] font-bold text-white shadow-[0_10px_18px_rgba(251,91,34,0.22)] transition-colors hover:bg-[#ed4d16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fb5b22] ${
                   isRtl
-                    ? 'h-8 px-5 text-[10px] sm:h-9 sm:px-6 sm:text-[11px]'
-                    : 'h-10 px-4 text-[12px] min-[420px]:px-5 min-[420px]:text-[13px] sm:h-12 sm:px-6 sm:text-[15px]'
+                    ? 'h-8 px-4 text-[10px] min-[420px]:px-5 sm:h-9 sm:px-6 sm:text-[11px]'
+                    : 'h-9 px-3 text-[11px] min-[420px]:h-10 min-[420px]:px-5 min-[420px]:text-[13px] sm:h-12 sm:px-6 sm:text-[15px]'
                 }`}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
@@ -98,8 +98,8 @@ const HeroSection = () => {
                 type="button"
                 className={`inline-flex shrink-0 items-center justify-center rounded-lg border border-[#bdb7b2] bg-white font-bold text-[#4c4744] transition-colors hover:bg-[#fff3e8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fb5b22] ${
                   isRtl
-                    ? 'h-8 px-5 text-[10px] sm:h-9 sm:px-6 sm:text-[11px]'
-                    : 'h-10 px-4 text-[12px] min-[420px]:px-5 min-[420px]:text-[13px] sm:h-12 sm:px-6 sm:text-[15px]'
+                    ? 'h-8 px-4 text-[10px] min-[420px]:px-5 sm:h-9 sm:px-6 sm:text-[11px]'
+                    : 'h-9 px-3 text-[11px] min-[420px]:h-10 min-[420px]:px-5 min-[420px]:text-[13px] sm:h-12 sm:px-6 sm:text-[15px]'
                 }`}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
@@ -134,8 +134,8 @@ const HeroSection = () => {
                 <p
                   className={`font-medium text-[#1f1f27] ${
                     isRtl
-                      ? 'max-w-[520px] text-[18px] leading-[1.75] tracking-normal sm:text-[20px] lg:text-[20px] xl:text-[20px]'
-                      : 'max-w-[610px] text-[28px] leading-[1.16] tracking-[-0.04em] sm:text-[30px] lg:text-[30px] xl:text-[30px]'
+                      ? 'max-w-[520px] text-[16px] leading-[1.85] tracking-normal min-[420px]:text-[18px] sm:text-[20px] lg:text-[20px] xl:text-[20px]'
+                      : 'max-w-[610px] text-[22px] leading-[1.35] tracking-[-0.025em] min-[420px]:text-2xl sm:text-[30px] sm:leading-[1.16] sm:tracking-[-0.04em] lg:text-[30px] xl:text-[30px]'
                   }`}
                 >
                   <span
@@ -153,7 +153,7 @@ const HeroSection = () => {
 
                 <div
                   className={`flex items-center gap-1.5 font-semibold text-[#474747] ${
-                    isRtl ? 'mt-4 text-[8px] tracking-normal' : 'mt-8 text-[12px] tracking-[-0.03em]'
+                    isRtl ? 'mt-3 text-[8px] tracking-normal sm:mt-4' : 'mt-4 text-[10px] tracking-[-0.02em] sm:mt-8 sm:text-[12px] sm:tracking-[-0.03em]'
                   }`}
                 >
                   <span className={`h-[2px] bg-[#fb5b22] ${isRtl ? 'w-[58px]' : 'w-[86px]'}`} />
@@ -169,7 +169,7 @@ const HeroSection = () => {
           </motion.div>
         </div>
 
-        <motion.div className="mt-8 sm:mt-10 lg:mt-12" variants={scaleFade}>
+        <motion.div className="mt-7 sm:mt-10 lg:mt-12" variants={scaleFade}>
           <motion.img
             src={heroImg}
             alt={t('home.hero.heroImageAlt')}

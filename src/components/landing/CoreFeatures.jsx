@@ -79,15 +79,15 @@ const CoreFeatures = () => {
 
   return (
     <motion.section
-      className="w-full bg-white px-4 py-9 sm:px-6 lg:px-10 xl:px-11"
+      className="w-full bg-white px-4 py-7 sm:px-6 sm:py-9 lg:px-10 xl:px-11"
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"
       viewport={revealViewport}
     >
-      <div className="mx-auto grid w-full max-w-7xl items-stretch gap-5 lg:grid-cols-[minmax(390px,535px)_minmax(560px,1fr)]">
+      <div className="mx-auto grid w-full max-w-7xl items-stretch gap-4 sm:gap-5 lg:grid-cols-[minmax(390px,535px)_minmax(560px,1fr)]">
         <motion.div
-          className="min-h-[260px] overflow-hidden rounded-[9px] sm:min-h-[340px] lg:min-h-[405px]"
+          className="min-h-[170px] overflow-hidden rounded-[9px] min-[420px]:min-h-[200px] sm:min-h-[280px] lg:min-h-[405px]"
           variants={scaleFade}
         >
           <motion.img
@@ -100,15 +100,15 @@ const CoreFeatures = () => {
         </motion.div>
 
         <motion.div
-          className="flex min-h-[405px] flex-col rounded-[16px] border border-[#dedbd8] bg-white px-3 py-7 sm:px-5 lg:px-3 xl:px-4"
+          className="flex min-h-0 flex-col rounded-[16px] border border-[#dedbd8] bg-white px-3 py-5 sm:min-h-[405px] sm:px-5 sm:py-7 lg:px-3 xl:px-4"
           variants={fadeInUp}
         >
           <motion.div
-            className="mb-6 flex flex-wrap items-center gap-3 ps-1 sm:flex-nowrap sm:gap-4"
+            className="mb-4 flex flex-wrap items-center gap-2 ps-1 sm:mb-6 sm:flex-nowrap sm:gap-4"
             variants={fadeInUp}
           >
-            <span className="h-7 w-1 shrink-0 bg-[#fb5b22]" />
-            <h2 className="shrink-0 text-[28px] font-extrabold leading-none tracking-[-0.04em] text-[#17171f] sm:text-[30px]">
+            <span className="h-6 w-1 shrink-0 bg-[#fb5b22] sm:h-7" />
+            <h2 className="shrink-0 text-[24px] font-extrabold leading-[1.2] tracking-[-0.035em] text-[#17171f] min-[420px]:text-[26px] sm:text-[30px] sm:leading-[1.08] sm:tracking-[-0.04em]">
               {t('home.coreFeatures.title.prefix')}{' '}
               <span className="text-[#fb5b22]">{t('home.coreFeatures.title.highlight')}</span>{' '}
               {t('home.coreFeatures.title.suffix')}
@@ -126,15 +126,15 @@ const CoreFeatures = () => {
             {features.map((feature, index) => (
               <motion.div
                 key={feature.id}
-                className="flex min-h-16 items-center gap-2 rounded-[17px] border border-[#f2dfd1] bg-[#fff7f0] px-2.5 text-[12px] font-bold leading-tight text-[#111116] shadow-[inset_0_1px_0_rgba(255,255,255,0.72)] min-[420px]:gap-3 min-[420px]:px-3.5 min-[420px]:text-[15px]"
+                className="flex min-h-[54px] items-center gap-2 rounded-[14px] border border-[#f2dfd1] bg-[#fff7f0] px-2.5 text-[11px] font-bold leading-[1.28] text-[#111116] shadow-[inset_0_1px_0_rgba(255,255,255,0.72)] min-[420px]:min-h-16 min-[420px]:gap-3 min-[420px]:rounded-[17px] min-[420px]:px-3.5 min-[420px]:text-[15px] min-[420px]:leading-[1.22]"
                 variants={fadeInUp}
                 whileHover={{ y: -3, scale: 1.01 }}
                 transition={{ duration: 0.25 }}
               >
                 <span
-                  className={`flex size-8 shrink-0 items-center justify-center rounded-full min-[420px]:size-9 ${feature.iconBg}`}
+                  className={`flex size-7 shrink-0 items-center justify-center rounded-full min-[420px]:size-9 ${feature.iconBg}`}
                 >
-                  <img src={feature.icon} alt="" className="max-h-6 max-w-6" />
+                  <img src={feature.icon} alt="" className="max-h-5 max-w-5 min-[420px]:max-h-6 min-[420px]:max-w-6" />
                 </span>
                 <span className="min-w-0">{featureLabels[index] ?? ''}</span>
               </motion.div>

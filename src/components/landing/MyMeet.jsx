@@ -5,14 +5,14 @@ import { fadeInUp, revealViewport, scaleFade, staggerContainer } from '../../ani
 import logoImg from '../../assets/images/liblib.png'
 
 const rows = [
-  ['check', 'x'],
-  ['check', 'x'],
-  ['check', 'x'],
-  ['check', 'x'],
-  ['check', 'limited'],
-  ['check', 'x'],
-  ['check', 'x'],
-  ['check', 'selfService'],
+  ['data-hosting', 'check', 'x'],
+  ['branding', 'check', 'x'],
+  ['controls', 'check', 'x'],
+  ['private-network', 'check', 'x'],
+  ['arabic-ai', 'check', 'limited'],
+  ['local-support', 'check', 'x'],
+  ['mobile-apps', 'check', 'x'],
+  ['documentation', 'check', 'selfService'],
 ]
 
 const StatusIcon = ({ type, label, className = '' }) => {
@@ -36,12 +36,14 @@ const StatusIcon = ({ type, label, className = '' }) => {
 }
 
 const MyMeet = () => {
-  const { t } = useTranslation()
-  const rowLabels = t('home.comparison.rows', { returnObjects: true })
+  const { i18n, t } = useTranslation()
+  const isRtl = i18n.dir() === 'rtl'
+  const translatedRows = t('home.comparison.rows', { returnObjects: true })
+  const rowLabels = Array.isArray(translatedRows) ? translatedRows : []
 
   return (
     <motion.section
-      className="w-full bg-white px-4 py-10 sm:px-6 lg:px-10 xl:px-14"
+      className="w-full bg-white px-4 py-8 sm:px-6 sm:py-10 lg:px-10 xl:px-14"
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"
@@ -49,7 +51,11 @@ const MyMeet = () => {
     >
       <div className="mx-auto w-full max-w-7xl">
         <motion.h2
-          className="mx-auto max-w-[540px] text-center text-[30px] font-extrabold leading-[1.05] tracking-[-0.045em] text-[#1d1d22] sm:text-[34px] lg:text-[36px]"
+          className={`mx-auto max-w-[540px] text-center text-[27px] font-extrabold text-[#1d1d22] sm:text-[34px] lg:text-[36px] ${
+            isRtl
+              ? 'leading-[1.35] tracking-normal'
+              : 'leading-[1.16] tracking-[-0.04em] sm:leading-[1.05] sm:tracking-[-0.045em]'
+          }`}
           variants={fadeInUp}
         >
           <Trans
@@ -62,20 +68,24 @@ const MyMeet = () => {
         </motion.h2>
 
         <motion.div
-          className="mx-auto mt-9 w-full max-w-7xl overflow-hidden rounded-[16px] border border-[#f0dfd0] bg-white shadow-[0_18px_30px_rgba(56,39,28,0.10)]"
+          className="mx-auto mt-7 w-full max-w-7xl overflow-hidden rounded-[16px] border border-[#f0dfd0] bg-white shadow-[0_18px_30px_rgba(56,39,28,0.10)] sm:mt-9"
           variants={scaleFade}
         >
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[720px] border-collapse text-start text-[13px] text-[#2d2a28]">
+            <table
+              className={`w-full min-w-[720px] border-collapse text-start text-[13px] text-[#2d2a28] ${
+                isRtl ? 'leading-[1.55]' : 'leading-[1.35]'
+              }`}
+            >
               <thead>
                 <tr className="h-[42px] bg-[#fff4ec]">
-                  <th className="w-[44.5%] px-5 text-[12px] font-extrabold uppercase tracking-[0.02em] text-[#7d8193]">
+                  <th className="w-[44.5%] px-5 py-3 text-[12px] font-extrabold uppercase tracking-[0.02em] text-[#7d8193]">
                     {t('home.comparison.featureHeader')}
                   </th>
-                  <th className="w-[28%] border-s-2 border-white bg-[#ffeee4] px-5">
+                  <th className="w-[28%] border-s-2 border-white bg-[#ffeee4] px-5 py-3">
                     <img src={logoImg} alt={t('brand.liblib')} className="h-auto w-[54px]" />
                   </th>
-                  <th className="w-[27.5%] border-s-2 border-white px-3 text-[13px] font-semibold text-[#554d48]">
+                  <th className="w-[27.5%] border-s-2 border-white px-3 py-3 text-[13px] font-semibold text-[#554d48]">
                     <div className="flex items-center justify-between gap-3">
                       <span>{t('home.comparison.genericTools')}</span>
                       <StatusIcon type="x" className="!bg-[#B42318]" />
@@ -84,19 +94,19 @@ const MyMeet = () => {
                 </tr>
               </thead>
               <tbody>
-                {rows.map(([myMeet, other], index) => {
+                {rows.map(([id, myMeet, other], index) => {
                   const outerCellBg = index % 2 === 0 ? 'bg-white' : 'bg-[#fffaf7]'
                   const myMeetCellBg = index % 2 === 0 ? 'bg-[#fff4ef]' : 'bg-[#fff0e8]'
 
                   return (
-                    <tr key={rowLabels[index]} className="h-[50px] border-t-2 border-white">
-                      <td className={`${outerCellBg} px-5 font-medium`}>
+                    <tr key={id} className="min-h-[54px] border-t-2 border-white">
+                      <td className={`${outerCellBg} px-5 py-3 font-medium`}>
                         {rowLabels[index]}
                       </td>
-                      <td className={`border-s-2 border-white ${myMeetCellBg} px-5`}>
+                      <td className={`border-s-2 border-white ${myMeetCellBg} px-5 py-3`}>
                         <StatusIcon type={myMeet} />
                       </td>
-                      <td className={`border-s-2 border-white ${outerCellBg} px-5 font-medium text-[#554d48]`}>
+                      <td className={`border-s-2 border-white ${outerCellBg} px-5 py-3 font-medium text-[#554d48]`}>
                         <StatusIcon type={other} label={t(`home.comparison.status.${other}`)} />
                       </td>
                     </tr>

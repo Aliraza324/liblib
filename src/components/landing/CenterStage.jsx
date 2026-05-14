@@ -45,7 +45,7 @@ const CenterStage = () => {
           <span className="inline-flex h-5 items-center rounded-full border border-[#ffd7c7] bg-[#fff1ea] px-3 text-[9px] font-extrabold uppercase tracking-[0.12em] text-[#fb5b22]">
             {t('home.centerStage.eyebrow')}
           </span>
-          <h2 className="mt-3 text-[32px] font-extrabold leading-[1.02] tracking-[-0.045em] text-black sm:text-[42px] lg:text-[44px]">
+          <h2 className="mt-3 text-[32px] font-extrabold leading-[1.5] tracking-[-0.045em] text-black sm:text-[42px] lg:text-[44px]">
             <Trans
               i18nKey="home.centerStage.title"
               components={{
