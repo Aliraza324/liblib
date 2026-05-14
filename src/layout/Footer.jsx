@@ -1,4 +1,6 @@
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { fadeInUp, revealViewport } from '../animation/animation'
 import footerLogo from '../assets/images/footerLogo.png'
 import hashIcon from '../assets/images/hash.png'
 import hostedImg from '../assets/images/hosted.png'
@@ -65,7 +67,13 @@ const legalLinks = ['Privacy Policy', 'Terms of Service', 'PDPL Notice', 'Cookie
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#1b2944] px-4 py-8 text-white sm:px-6 lg:px-10 xl:px-14">
+    <motion.footer
+      className="w-full bg-[#1b2944] px-4 py-8 text-white sm:px-6 lg:px-10 xl:px-14"
+      variants={fadeInUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={revealViewport}
+    >
       <div className="mx-auto w-full max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[minmax(220px,310px)_1fr] lg:gap-16">
           <div>
@@ -156,7 +164,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   )
 }
 

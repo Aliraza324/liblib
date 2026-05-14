@@ -1,4 +1,6 @@
+import { motion } from 'framer-motion'
 import { Check, X } from 'lucide-react'
+import { fadeInUp, revealViewport, scaleFade, staggerContainer } from '../../animation/animation'
 import logoImg from '../../assets/images/liblib.png'
 
 const rows = [
@@ -34,15 +36,27 @@ const StatusIcon = ({ type, className = '' }) => {
 
 const MyMeet = () => {
   return (
-    <section className="w-full bg-white px-4 py-10 sm:px-6 lg:px-10 xl:px-14">
+    <motion.section
+      className="w-full bg-white px-4 py-10 sm:px-6 lg:px-10 xl:px-14"
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={revealViewport}
+    >
       <div className="mx-auto w-full max-w-7xl">
-        <h2 className="mx-auto max-w-[540px] text-center text-[30px] font-extrabold leading-[1.05] tracking-[-0.045em] text-[#1d1d22] sm:text-[34px] lg:text-[36px]">
+        <motion.h2
+          className="mx-auto max-w-[540px] text-center text-[30px] font-extrabold leading-[1.05] tracking-[-0.045em] text-[#1d1d22] sm:text-[34px] lg:text-[36px]"
+          variants={fadeInUp}
+        >
           <span className="text-[#fb5b22]">MyMeet Application</span> vs. Other
           <br />
           meeting Application
-        </h2>
+        </motion.h2>
 
-        <div className="mx-auto mt-9 w-full max-w-7xl overflow-hidden rounded-[16px] border border-[#f0dfd0] bg-white shadow-[0_18px_30px_rgba(56,39,28,0.10)]">
+        <motion.div
+          className="mx-auto mt-9 w-full max-w-7xl overflow-hidden rounded-[16px] border border-[#f0dfd0] bg-white shadow-[0_18px_30px_rgba(56,39,28,0.10)]"
+          variants={scaleFade}
+        >
           <div className="overflow-x-auto">
             <table className="w-full min-w-[720px] border-collapse text-left text-[13px] text-[#2d2a28]">
               <thead>
@@ -83,9 +97,9 @@ const MyMeet = () => {
               </tbody>
             </table>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

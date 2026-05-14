@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+import { fadeInUp, revealViewport, scaleFade, staggerContainer } from '../../animation/animation'
 import appImg from '../../assets/images/app.png'
 import complaintImg from '../../assets/images/complaint.png'
 import developImg from '../../assets/images/develop.png'
@@ -83,9 +85,18 @@ const cards = [
 
 const WhyChoose = () => {
   return (
-    <section className="w-full bg-[#fff8f4] px-4 py-8 sm:px-6 lg:px-10 lg:py-9 xl:px-14">
+    <motion.section
+      className="w-full bg-[#fff8f4] px-4 py-8 sm:px-6 lg:px-10 lg:py-9 xl:px-14"
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={revealViewport}
+    >
       <div className="mx-auto grid w-full max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-[minmax(235px,0.88fr)_minmax(270px,1fr)_minmax(270px,1fr)] lg:grid-rows-[306px_306px] lg:gap-x-6 lg:gap-y-6">
-        <div className="flex min-h-[244px] flex-col justify-center pl-3 pr-4 sm:col-span-2 lg:col-span-1 lg:min-h-0 lg:justify-start lg:pl-0 lg:pt-9 xl:pl-1">
+        <motion.div
+          className="flex min-h-[244px] flex-col justify-center pl-3 pr-4 sm:col-span-2 lg:col-span-1 lg:min-h-0 lg:justify-start lg:pl-0 lg:pt-9 xl:pl-1"
+          variants={fadeInUp}
+        >
           <div className="flex items-start gap-3 xl:gap-4">
             <span className="mt-0.5 flex h-[153px] w-0.5 shrink-0 flex-col items-center bg-[#fb5b22]">
               <span className="mt-auto size-2 translate-y-1 rounded-full border-2 border-[#fb5b22] bg-[#fff8f4]" />
@@ -107,17 +118,22 @@ const WhyChoose = () => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {cards.map((card) => (
-          <article
+          <motion.article
             key={`${card.badge || ''}${card.className}`}
             className={`relative min-h-[264px] overflow-hidden rounded-[16px] bg-[#17120f] lg:min-h-0 ${card.className}`}
+            variants={scaleFade}
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3 }}
           >
-            <img
+            <motion.img
               src={card.image}
               alt=""
               className={`h-full w-full object-cover ${card.imageClassName}`}
+              whileHover={{ scale: 1.04 }}
+              transition={{ duration: 0.45 }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/28 to-black/22" />
 
@@ -145,10 +161,10 @@ const WhyChoose = () => {
                 </p>
               )}
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
-    </section>
+    </motion.section>
   )
 }
 

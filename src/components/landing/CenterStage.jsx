@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+import { fadeInUp, revealViewport, scaleFade, staggerContainer } from '../../animation/animation'
 import brandedIcon from '../../assets/images/branded.png'
 import customIcon from '../../assets/images/custom.png'
 import mobileIcon from '../../assets/images/mobile.png'
@@ -29,9 +31,15 @@ const features = [
 
 const CenterStage = () => {
   return (
-    <section className="w-full overflow-visible bg-white px-4 py-10 sm:px-6 lg:h-screen lg:min-h-[720px] lg:px-10 lg:py-6 xl:px-14">
+    <motion.section
+      className="w-full overflow-visible bg-white px-4 py-10 sm:px-6 lg:h-screen lg:min-h-[720px] lg:px-10 lg:py-6 xl:px-14"
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={revealViewport}
+    >
       <div className="mx-auto flex h-full w-full max-w-7xl flex-col justify-start pt-3 lg:pt-4">
-        <div className="mx-auto w-full max-w-[720px] text-center">
+        <motion.div className="mx-auto w-full max-w-[720px] text-center" variants={fadeInUp}>
           <span className="inline-flex h-5 items-center rounded-full border border-[#ffd7c7] bg-[#fff1ea] px-3 text-[9px] font-extrabold uppercase tracking-[0.12em] text-[#fb5b22]">
             White-label customization
           </span>
@@ -43,14 +51,17 @@ const CenterStage = () => {
             yours. Liblib Meet ships as a fully white-label platform you can shape
             down to the smallest detail.
           </p>
-        </div>
+        </motion.div>
 
         <div className="mt-2 grid items-center gap-3 sm:gap-5 lg:mt-2 lg:grid-cols-[minmax(420px,480px)_minmax(0,650px)] lg:justify-center lg:gap-12 xl:gap-14">
-          <div className="grid gap-4">
+          <motion.div className="grid gap-4" variants={staggerContainer}>
             {features.map((feature) => (
-              <article
+              <motion.article
                 key={feature.title}
                 className="flex min-h-[84px] items-center gap-4 rounded-[14px] border border-[#f0dfd0] bg-[#fff8f4] px-5 shadow-[0_1px_0_rgba(255,255,255,0.9)] sm:px-6"
+                variants={fadeInUp}
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.25 }}
               >
                 <span className="flex size-10 shrink-0 items-center justify-center rounded-[11px] bg-[#fff0e8]">
                   <img src={feature.icon} alt="" className="max-h-[23px] max-w-[23px]" />
@@ -63,20 +74,25 @@ const CenterStage = () => {
                     {feature.description}
                   </p>
                 </span>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="relative mx-auto flex w-full max-w-[720px] items-center justify-center lg:max-w-none">
-            <img
+          <motion.div
+            className="relative mx-auto flex w-full max-w-[720px] items-center justify-center lg:max-w-none"
+            variants={scaleFade}
+          >
+            <motion.img
               src={rightSideImg}
               alt="White-label meeting interface preview"
               className="mx-auto block h-auto w-full max-w-[430px] object-contain opacity-100  min-[420px]:max-w-[500px] sm:max-w-[620px] lg:h-[557px] lg:w-[654px] lg:max-w-none"
+              whileHover={{ scale: 1.015 }}
+              transition={{ duration: 0.35 }}
             />
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

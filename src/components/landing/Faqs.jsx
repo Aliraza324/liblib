@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
+import { fadeInUp, revealViewport, smoothEase, staggerContainer } from '../../animation/animation'
 import ansIcon from '../../assets/images/ans.png'
 
 const faqs = [
@@ -49,9 +51,15 @@ const Faqs = () => {
   const [openIndex, setOpenIndex] = useState(null)
 
   return (
-    <section className="w-full bg-[#fff8f4] px-5 py-12 sm:px-6 sm:py-14 lg:px-10 lg:py-[70px] xl:px-14">
+    <motion.section
+      className="w-full bg-[#fff8f4] px-5 py-12 sm:px-6 sm:py-14 lg:px-10 lg:py-[70px] xl:px-14"
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={revealViewport}
+    >
       <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[390px_minmax(0,640px)] lg:justify-center lg:gap-5 xl:grid-cols-[535px_minmax(0,680px)] xl:gap-6">
-        <div className="pt-1 lg:pt-5">
+        <motion.div className="pt-1 lg:pt-5" variants={fadeInUp}>
           <div className="flex items-start gap-3 sm:gap-4">
             <span className="mt-1 flex h-[123px] w-0.5 shrink-0 flex-col items-center bg-[#fb5b22] sm:h-[140px]" />
 
@@ -74,16 +82,17 @@ const Faqs = () => {
               </h2>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="grid w-full gap-3">
+        <motion.div className="grid w-full gap-3" variants={staggerContainer}>
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index
 
             return (
-              <article
+              <motion.article
                 key={faq.question}
                 className="overflow-hidden rounded-[18px] border border-[#f0dfd0] bg-white shadow-[0_1px_0_rgba(255,255,255,0.9)]"
+                variants={fadeInUp}
               >
                 <button
                   type="button"
@@ -98,19 +107,27 @@ const Faqs = () => {
                   />
                 </button>
 
-                {isOpen && (
-                  <div className="border-t border-[#f4e6dc] px-5 pb-5 pt-1 sm:px-6">
-                    <p className="max-w-[590px] text-[14px] font-medium leading-6 text-[#625a55]">
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
-              </article>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      className="border-t border-[#f4e6dc] px-5 pb-5 pt-1 sm:px-6"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.32, ease: smoothEase }}
+                    >
+                      <p className="max-w-[590px] text-[14px] font-medium leading-6 text-[#625a55]">
+                        {faq.answer}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.article>
             )
           })}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

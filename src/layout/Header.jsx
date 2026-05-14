@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, ChevronDown, Globe2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { fadeInDown, smoothEase } from '../animation/animation'
 import logo from '../assets/images/logo.png'
 
 const languages = [
@@ -30,8 +32,13 @@ const Header = () => {
   }
 
   return (
-    <header className="w-full bg-[#fff8f4] px-2 py-4 min-[420px]:px-3 sm:px-6 sm:py-5 lg:px-14">
-      <nav className="mx-auto flex min-h-13 w-full max-w-7xl flex-wrap items-center justify-between gap-2 rounded-[16px] border border-[#eadfd8] bg-white px-3 py-2 shadow-[0_1px_1px_rgba(15,23,42,0.05)] min-[420px]:flex-nowrap min-[420px]:gap-3 sm:min-h-[54px] sm:rounded-[18px] sm:px-8">
+    <motion.header
+      className="w-full bg-[#fff8f4] px-2 py-4 min-[420px]:px-3 sm:px-6 sm:py-5 lg:px-14"
+      variants={fadeInDown}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.nav className="mx-auto flex min-h-13 w-full max-w-7xl flex-wrap items-center justify-between gap-2 rounded-[16px] border border-[#eadfd8] bg-white px-3 py-2 shadow-[0_1px_1px_rgba(15,23,42,0.05)] min-[420px]:flex-nowrap min-[420px]:gap-3 sm:min-h-[54px] sm:rounded-[18px] sm:px-8">
         <Link
           to="/"
           aria-label="Liblib home"
@@ -66,37 +73,43 @@ const Header = () => {
               />
             </button>
 
-            {isLanguageOpen && (
-              <div
-                role="listbox"
-                aria-label="Language options"
-                className="absolute right-0 top-[calc(100%+8px)] z-10 w-24 overflow-hidden rounded-xl border border-[#f1e3d8] bg-white p-1.5 text-[11px] font-semibold text-[#2b211b] shadow-[0_12px_28px_rgba(65,36,20,0.12)] min-[420px]:w-28"
-              >
-                {languages.map((language) => {
-                  const isSelected = language.value === selectedLanguage.value
+            <AnimatePresence>
+              {isLanguageOpen && (
+                <motion.div
+                  role="listbox"
+                  aria-label="Language options"
+                  className="absolute right-0 top-[calc(100%+8px)] z-10 w-24 overflow-hidden rounded-xl border border-[#f1e3d8] bg-white p-1.5 text-[11px] font-semibold text-[#2b211b] shadow-[0_12px_28px_rgba(65,36,20,0.12)] min-[420px]:w-28"
+                  initial={{ opacity: 0, y: -8, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -8, scale: 0.98 }}
+                  transition={{ duration: 0.2, ease: smoothEase }}
+                >
+                  {languages.map((language) => {
+                    const isSelected = language.value === selectedLanguage.value
 
-                  return (
-                    <button
-                      key={language.value}
-                      type="button"
-                      role="option"
-                      aria-selected={isSelected}
-                      className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left transition-colors ${
-                        isSelected
-                          ? 'bg-[#fff3e8] text-[#fb5b22]'
-                          : 'hover:bg-[#fff8f4]'
-                      }`}
-                      onClick={() => handleLanguageSelect(language)}
-                    >
-                      <span dir={language.dir}>{language.label}</span>
-                      {isSelected && (
-                        <span className="size-1.5 rounded-full bg-[#fb5b22]" />
-                      )}
-                    </button>
-                  )
-                })}
-              </div>
-            )}
+                    return (
+                      <button
+                        key={language.value}
+                        type="button"
+                        role="option"
+                        aria-selected={isSelected}
+                        className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left transition-colors ${
+                          isSelected
+                            ? 'bg-[#fff3e8] text-[#fb5b22]'
+                            : 'hover:bg-[#fff8f4]'
+                        }`}
+                        onClick={() => handleLanguageSelect(language)}
+                      >
+                        <span dir={language.dir}>{language.label}</span>
+                        {isSelected && (
+                          <span className="size-1.5 rounded-full bg-[#fb5b22]" />
+                        )}
+                      </button>
+                    )
+                  })}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           <Link
@@ -107,8 +120,8 @@ const Header = () => {
             <ArrowRight className="size-3.5 shrink-0 sm:size-4" strokeWidth={2.4} />
           </Link>
         </div>
-      </nav>
-    </header>
+      </motion.nav>
+    </motion.header>
   )
 }
 
