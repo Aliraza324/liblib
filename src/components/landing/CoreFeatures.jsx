@@ -16,46 +16,57 @@ import wifiIcon from '../../assets/images/wifi.png'
 
 const features = [
   {
+    id: 'video',
     icon: cameraIcon,
     iconBg: 'bg-[#ffe8df]',
   },
   {
+    id: 'assistant',
     icon: virtualIcon,
     iconBg: 'bg-[#ebe3ff]',
   },
   {
+    id: 'chat',
     icon: chatIcon,
     iconBg: 'bg-[#dffbea]',
   },
   {
+    id: 'recording',
     icon: meetingIcon,
     iconBg: 'bg-[#ffe7eb]',
   },
   {
+    id: 'summary',
     icon: summaryIcon,
     iconBg: 'bg-[#ffe8dc]',
   },
   {
+    id: 'screen',
     icon: screenIcon,
     iconBg: 'bg-[#eae2ff]',
   },
   {
+    id: 'quality',
     icon: wifiIcon,
     iconBg: 'bg-[#ddf9ed]',
   },
   {
+    id: 'attendees',
     icon: supportIcon,
     iconBg: 'bg-[#ffe4d9]',
   },
   {
+    id: 'blur',
     icon: smartIcon,
     iconBg: 'bg-[#dff9ed]',
   },
   {
+    id: 'encryption',
     icon: encryptionIcon,
     iconBg: 'bg-[#f1eeee]',
   },
   {
+    id: 'support',
     icon: localSupportIcon,
     iconBg: 'bg-[#ffe3d9]',
   },
@@ -63,7 +74,8 @@ const features = [
 
 const CoreFeatures = () => {
   const { t } = useTranslation()
-  const featureLabels = t('home.coreFeatures.items', { returnObjects: true })
+  const translatedFeatureLabels = t('home.coreFeatures.items', { returnObjects: true })
+  const featureLabels = Array.isArray(translatedFeatureLabels) ? translatedFeatureLabels : []
 
   return (
     <motion.section
@@ -113,7 +125,7 @@ const CoreFeatures = () => {
           >
             {features.map((feature, index) => (
               <motion.div
-                key={featureLabels[index]}
+                key={feature.id}
                 className="flex min-h-16 items-center gap-2 rounded-[17px] border border-[#f2dfd1] bg-[#fff7f0] px-2.5 text-[12px] font-bold leading-tight text-[#111116] shadow-[inset_0_1px_0_rgba(255,255,255,0.72)] min-[420px]:gap-3 min-[420px]:px-3.5 min-[420px]:text-[15px]"
                 variants={fadeInUp}
                 whileHover={{ y: -3, scale: 1.01 }}
@@ -124,7 +136,7 @@ const CoreFeatures = () => {
                 >
                   <img src={feature.icon} alt="" className="max-h-6 max-w-6" />
                 </span>
-                <span className="min-w-0">{featureLabels[index]}</span>
+                <span className="min-w-0">{featureLabels[index] ?? ''}</span>
               </motion.div>
             ))}
           </motion.div>

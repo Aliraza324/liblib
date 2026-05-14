@@ -60,7 +60,7 @@ const HeroSection = () => {
               <h1
                 className={`font-extrabold text-[#1c1b20] ${
                   isRtl
-                    ? 'max-w-[290px] text-end text-[44px] leading-[1.14] tracking-normal min-[420px]:text-[50px] lg:text-[52px]'
+                    ? 'max-w-[290px] text-justify text-[44px] leading-[1.14] tracking-normal min-[420px]:text-[50px] lg:text-[52px]'
                     : 'max-w-[410px] text-[48px] leading-[0.98] tracking-[-0.06em] min-[420px]:text-6xl lg:text-[74px]'
                 }`}
               >
