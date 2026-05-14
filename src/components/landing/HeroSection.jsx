@@ -16,13 +16,13 @@ const HeroSection = () => {
       <div className="mx-auto w-full max-w-7xl">
         <div className="relative grid items-start gap-8 lg:grid-cols-[410px_minmax(0,1fr)] lg:gap-[194px] xl:grid-cols-[410px_minmax(0,1fr)] xl:gap-[210px]">
           <motion.div className="min-w-0" variants={staggerContainer}>
-            <motion.div className="mb-7 flex flex-wrap items-center gap-4" variants={fadeInDown}>
-              <span className="inline-flex h-10 items-center gap-2 rounded-full border border-[#087546] bg-[#0968390D] px-4 text-[15px] font-bold text-[#087546]">
-                <img src={flagImg} alt="" className="size-4" />
+            <motion.div className="mb-7 flex items-center gap-2 min-[420px]:gap-3 sm:gap-4" variants={fadeInDown}>
+              <span className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-full border border-[#087546] bg-[#0968390D] px-2.5 text-[11px] font-bold text-[#087546] min-[420px]:h-9 min-[420px]:px-3 min-[420px]:text-[13px] sm:h-10 sm:gap-2 sm:px-4 sm:text-[15px]">
+                <img src={flagImg} alt="" className="size-3.5 sm:size-4" />
                 Saudi Product
               </span>
-              <span className="inline-flex h-10 items-center gap-2 rounded-full border border-[#087546] bg-[#0968390D] px-4 text-[15px] font-bold text-[#087546]">
-                <Heart className="size-4" strokeWidth={2.4} />
+              <span className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-full border border-[#087546] bg-[#0968390D] px-2.5 text-[11px] font-bold text-[#087546] min-[420px]:h-9 min-[420px]:px-3 min-[420px]:text-[13px] sm:h-10 sm:gap-2 sm:px-4 sm:text-[15px]">
+                <Heart className="size-3.5 sm:size-4" strokeWidth={2.4} />
                 Local Content Support
               </span>
             </motion.div>
@@ -33,10 +33,10 @@ const HeroSection = () => {
               </h1>
             </motion.div>
 
-            <motion.div className="mt-6 flex flex-wrap gap-4" variants={fadeInUp}>
+            <motion.div className="mt-6 flex items-center gap-2 min-[420px]:gap-3 sm:gap-4" variants={fadeInUp}>
               <motion.button
                 type="button"
-                className="inline-flex h-12 items-center justify-center rounded-lg bg-[#fb5b22] px-6 text-[15px] font-bold text-white shadow-[0_10px_18px_rgba(251,91,34,0.22)] transition-colors hover:bg-[#ed4d16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fb5b22]"
+                className="inline-flex h-10 shrink-0 items-center justify-center rounded-lg bg-[#fb5b22] px-4 text-[12px] font-bold text-white shadow-[0_10px_18px_rgba(251,91,34,0.22)] transition-colors hover:bg-[#ed4d16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fb5b22] min-[420px]:px-5 min-[420px]:text-[13px] sm:h-12 sm:px-6 sm:text-[15px]"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -44,7 +44,7 @@ const HeroSection = () => {
               </motion.button>
               <motion.button
                 type="button"
-                className="inline-flex h-12 items-center justify-center rounded-lg border border-[#bdb7b2] bg-white px-6 text-[15px] font-bold text-[#4c4744] transition-colors hover:bg-[#fff3e8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fb5b22]"
+                className="inline-flex h-10 shrink-0 items-center justify-center rounded-lg border border-[#bdb7b2] bg-white px-4 text-[12px] font-bold text-[#4c4744] transition-colors hover:bg-[#fff3e8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#fb5b22] min-[420px]:px-5 min-[420px]:text-[13px] sm:h-12 sm:px-6 sm:text-[15px]"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >

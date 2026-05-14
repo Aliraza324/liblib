@@ -35,21 +35,21 @@ const GetStarted = () => {
           </motion.p>
 
           <motion.div
-            className="mt-7 flex flex-wrap items-center justify-center gap-3"
+            className="mt-7 flex items-center justify-center gap-2 min-[420px]:gap-3"
             variants={fadeInUp}
           >
             <motion.button
               type="button"
-              className="inline-flex h-11 items-center justify-center gap-3 rounded-full bg-white px-6 text-[13px] font-extrabold text-[#e94b18] shadow-[0_10px_22px_rgba(116,35,11,0.14)] transition-colors hover:bg-[#fff5ef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-white px-4 text-[12px] font-extrabold text-[#e94b18] shadow-[0_10px_22px_rgba(116,35,11,0.14)] transition-colors hover:bg-[#fff5ef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white min-[420px]:px-5 sm:h-11 sm:gap-3 sm:px-6 sm:text-[13px]"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
               Book a Demo
-              <ArrowRight className="size-4" strokeWidth={2.5} />
+              <ArrowRight className="size-3.5 sm:size-4" strokeWidth={2.5} />
             </motion.button>
             <motion.button
               type="button"
-              className="inline-flex h-11 items-center justify-center rounded-full border border-white/45 px-6 text-[13px] font-extrabold text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="inline-flex h-10 shrink-0 items-center justify-center rounded-full border border-white/45 px-4 text-[12px] font-extrabold text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white min-[420px]:px-5 sm:h-11 sm:px-6 sm:text-[13px]"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
