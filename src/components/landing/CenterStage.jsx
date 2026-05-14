@@ -90,7 +90,7 @@ const CenterStage = () => {
             <motion.img
               src={rightSideImg}
               alt={t('home.centerStage.imageAlt')}
-              className="mx-auto block h-auto w-full max-w-[430px] object-contain opacity-100  min-[420px]:max-w-[500px] sm:max-w-[620px] lg:h-[557px] lg:w-[654px] lg:max-w-none"
+              className="mx-auto block h-auto w-full max-w-[430px] object-contain opacity-100 min-[420px]:max-w-[500px] sm:max-w-[620px] lg:h-[500px] lg:w-[590px] lg:max-w-none xl:h-[520px] xl:w-[610px]"
               whileHover={{ scale: 1.015 }}
               transition={{ duration: 0.35 }}
             />
