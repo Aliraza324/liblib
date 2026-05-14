@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
 import { pageFade } from './animation/animation'
 import GlobalLoader from './components/common/GlobalLoader'
@@ -9,6 +10,7 @@ import { getLandingRoute } from './routes/landingRoutes/LandingRoutes'
 
 const App = () => {
   const { pathname } = useLocation()
+  const { t } = useTranslation()
   const { Component } = getLandingRoute(pathname)
   const [isLoading, setIsLoading] = useState(true)
 
@@ -19,6 +21,10 @@ const App = () => {
 
     return () => window.clearTimeout(timer)
   }, [])
+
+  useEffect(() => {
+    document.title = t('meta.title')
+  }, [t])
 
   return (
     <>

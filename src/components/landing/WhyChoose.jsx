@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Trans, useTranslation } from 'react-i18next'
 import { fadeInUp, revealViewport, scaleFade, staggerContainer } from '../../animation/animation'
 import appImg from '../../assets/images/app.png'
 import complaintImg from '../../assets/images/complaint.png'
@@ -8,82 +9,34 @@ import noInternetImg from '../../assets/images/noInternet.jpg'
 const cards = [
   {
     image: noInternetImg,
-    badge: 'OFFLINE CAPABILITY',
-    title: (
-      <>
-        No
-        <br />
-        Internet?
-        <br />
-        <span className="text-[#fb5b22]">No</span> Problem.
-      </>
-    ),
+    hasBadge: true,
     className: 'lg:col-start-2',
     imageClassName: 'object-[center_42%]',
   },
   {
     image: appImg,
-    title: (
-      <>
-        Your app in
-        <br />
-        your visual
-        <br />
-        <span className="text-[#fb5b22]">identity</span>
-      </>
-    ),
-    description: (
-      <>
-        Make it yours with Custom
-        <br />
-        Branding
-      </>
-    ),
+    hasDescription: true,
     className: 'lg:col-start-3',
     imageClassName: 'object-[55%_center]',
   },
   {
     image: developImg,
-    badge: 'PRIVATE NETWORK',
-    title: (
-      <>
-        Can be deployed on <span className="text-[#fb5b22]">your private</span>
-        <br />
-        network
-      </>
-    ),
+    hasBadge: true,
     className: 'lg:col-span-2',
     imageClassName: 'object-[center_42%]',
     wide: true,
   },
   {
     image: complaintImg,
-    title: (
-      <>
-        Compliant
-        <br />
-        Personal <span className="text-[#fb5b22]">Data</span>
-        <br />
-        <span className="text-[#fb5b22]">Protection</span>
-        <br />
-        Law
-      </>
-    ),
-    description: (
-      <>
-        View real-world examples
-        <br />
-        specific to your engineering
-        <br />
-        discipline.
-      </>
-    ),
+    hasDescription: true,
     className: 'lg:col-start-3',
     imageClassName: 'object-[52%_center]',
   },
 ]
 
 const WhyChoose = () => {
+  const { t } = useTranslation()
+
   return (
     <motion.section
       className="w-full bg-[#fff8f4] px-4 py-8 sm:px-6 lg:px-10 lg:py-9 xl:px-14"
@@ -94,7 +47,7 @@ const WhyChoose = () => {
     >
       <div className="mx-auto grid w-full max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-[minmax(235px,0.88fr)_minmax(270px,1fr)_minmax(270px,1fr)] lg:grid-rows-[306px_306px] lg:gap-x-6 lg:gap-y-6">
         <motion.div
-          className="flex min-h-[244px] flex-col justify-center pl-3 pr-4 sm:col-span-2 lg:col-span-1 lg:min-h-0 lg:justify-start lg:pl-0 lg:pt-9 xl:pl-1"
+          className="flex min-h-[244px] flex-col justify-center pe-4 ps-3 sm:col-span-2 lg:col-span-1 lg:min-h-0 lg:justify-start lg:ps-0 lg:pt-9 xl:ps-1"
           variants={fadeInUp}
         >
           <div className="flex items-start gap-3 xl:gap-4">
@@ -103,26 +56,29 @@ const WhyChoose = () => {
             </span>
             <div>
               <h2 className="text-[34px] font-semibold leading-[1.08] tracking-[-0.045em] text-[#1b1b22] xl:text-[38px]">
-                Why
-                <br />
-                ChooseThis
-                <br />
-                MyMeet
-                <br />
-                Application
+                <Trans
+                  i18nKey="home.whyChoose.title"
+                  components={{
+                    br: <br />,
+                  }}
+                />
               </h2>
               <p className="mt-4 max-w-[205px] text-[16px] leading-[1.02] tracking-[-0.03em] text-[#1e1f25] xl:text-[17px]">
-                What makes your <span className="text-[#fb5b22]">meetings</span>
-                <br />
-                app stand out
+                <Trans
+                  i18nKey="home.whyChoose.description"
+                  components={{
+                    br: <br />,
+                    highlight: <span className="text-[#fb5b22]" />,
+                  }}
+                />
               </p>
             </div>
           </div>
         </motion.div>
 
-        {cards.map((card) => (
+        {cards.map((card, index) => (
           <motion.article
-            key={`${card.badge || ''}${card.className}`}
+            key={`${card.image}${card.className}`}
             className={`relative min-h-[264px] overflow-hidden rounded-[16px] bg-[#17120f] lg:min-h-0 ${card.className}`}
             variants={scaleFade}
             whileHover={{ y: -5 }}
@@ -137,9 +93,9 @@ const WhyChoose = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/28 to-black/22" />
 
-            {card.badge && (
-              <span className="absolute left-[18px] top-[26px] rounded-[4px] bg-[#d87c55] px-2 py-1 text-[7px] font-black leading-none tracking-[0.08em] text-white lg:left-6">
-                {card.badge}
+            {card.hasBadge && (
+              <span className="absolute start-[18px] top-[26px] rounded-[4px] bg-[#d87c55] px-2 py-1 text-[7px] font-black leading-none tracking-[0.08em] text-white lg:start-6">
+                {t(`home.whyChoose.cards.${index}.badge`)}
               </span>
             )}
 
@@ -153,11 +109,22 @@ const WhyChoose = () => {
                   card.wide ? 'text-[28px] xl:text-[32px]' : 'text-[28px] xl:text-[32px]'
                 }`}
               >
-                {card.title}
+                <Trans
+                  i18nKey={`home.whyChoose.cards.${index}.title`}
+                  components={{
+                    br: <br />,
+                    highlight: <span className="text-[#fb5b22]" />,
+                  }}
+                />
               </h3>
-              {card.description && (
+              {card.hasDescription && (
                 <p className="mt-8 text-[16px] font-medium leading-[0.9] tracking-[-0.04em] text-white xl:text-[17px]">
-                  {card.description}
+                  <Trans
+                    i18nKey={`home.whyChoose.cards.${index}.description`}
+                    components={{
+                      br: <br />,
+                    }}
+                  />
                 </p>
               )}
             </div>

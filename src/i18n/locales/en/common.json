@@ -1,0 +1,229 @@
+{
+  "meta": {
+    "title": "Liblib Meet | Saudi-Hosted Video Meetings"
+  },
+  "language": {
+    "select": "Select language",
+    "current": "Current language: {{language}}",
+    "switchTo": "Switch to {{language}}",
+    "options": {
+      "en": "Eng",
+      "ar": "عربي"
+    }
+  },
+  "brand": {
+    "liblib": "Liblib",
+    "liblibMeet": "Liblib Meet",
+    "myMeet": "MyMeet Application"
+  },
+  "header": {
+    "homeAria": "Liblib home",
+    "startMeeting": "Start a Meeting"
+  },
+  "loader": {
+    "logoAlt": "Liblib"
+  },
+  "home": {
+    "hero": {
+      "badges": {
+        "saudiProduct": "Saudi Product",
+        "localContent": "Local Content Support"
+      },
+      "title": "MyMeet Application",
+      "titleLines": {
+        "first": "MyMeet",
+        "second": "Application"
+      },
+      "startMeeting": "Start A Meeting",
+      "requestTrial": "Request App Trial",
+      "copy": {
+        "beforeHighlight": "Run your online",
+        "videoMeetings": "video meetings",
+        "middle": "with your internal teams or clients, through",
+        "product": "My Meet Application"
+      },
+      "tagline": "Seamless , Secure , Collaborative",
+      "heroImageAlt": "MyMeet video meeting interface"
+    },
+    "coreFeatures": {
+      "imageAlt": "MyMeet online meeting on a laptop",
+      "title": {
+        "prefix": "Our",
+        "highlight": "Core",
+        "suffix": "Features"
+      },
+      "items": [
+        "HD Video Meeting",
+        "Virtual Assistant",
+        "Meeting chat",
+        "Meeting Recording",
+        "AI Meeting Summary",
+        "Screen Share",
+        "Adaptive Quality",
+        "50 Attendee Support",
+        "Smart Blur",
+        "Encryption",
+        "24/7 Local Support"
+      ]
+    },
+    "whyChoose": {
+      "title": "Why<br/>ChooseThis<br/>MyMeet<br/>Application",
+      "description": "What makes your <highlight>meetings</highlight><br/>app stand out",
+      "cards": [
+        {
+          "badge": "OFFLINE CAPABILITY",
+          "title": "No<br/>Internet?<br/><highlight>No</highlight> Problem."
+        },
+        {
+          "title": "Your app in<br/>your visual<br/><highlight>identity</highlight>",
+          "description": "Make it yours with Custom<br/>Branding"
+        },
+        {
+          "badge": "PRIVATE NETWORK",
+          "title": "Can be deployed on <highlight>your private</highlight><br/>network"
+        },
+        {
+          "title": "Compliant<br/>Personal <highlight>Data</highlight><br/><highlight>Protection</highlight><br/>Law",
+          "description": "View real-world examples<br/>specific to your engineering<br/>discipline."
+        }
+      ]
+    },
+    "comparison": {
+      "title": "<highlight>MyMeet Application</highlight> vs. Other<br/>meeting Application",
+      "featureHeader": "Feature",
+      "genericTools": "Generic foreign tools",
+      "status": {
+        "limited": "Limited",
+        "selfService": "Self-service"
+      },
+      "rows": [
+        "Data hosted in KSA",
+        "Your branding and subdomain",
+        "PDPL & NCA controls mapped",
+        "On-premise / private network deployment",
+        "Native Arabic AI features",
+        "Local Arabic-speaking support 24/7",
+        "Custom mobile apps under your brand",
+        "Compliance documentation included"
+      ]
+    },
+    "faqs": {
+      "heading": "<icon/>Answers for the<br/><highlight>questions</highlight><br/>procurement's <highlight>always</highlight><br/><highlight>asks</highlight><line/>",
+      "items": [
+        {
+          "question": "Where is our data physically stored?",
+          "answer": "Your meeting data is hosted in KSA-aligned infrastructure, keeping storage and access aligned with local business requirements."
+        },
+        {
+          "question": "How does Liblib Meet handle PDPL compliance?",
+          "answer": "Liblib Meet is designed around mapped privacy controls, documentation, and operational practices that support PDPL-focused procurement reviews."
+        },
+        {
+          "question": "Can we deploy Liblib Meet on our own private network?",
+          "answer": "Yes. The platform can support private network and on-premise deployment models for organizations with stricter infrastructure policies."
+        },
+        {
+          "question": "How customizable is the white-label experience?",
+          "answer": "You can customize branding, app identity, and subdomain details so the meeting experience feels native to your organization."
+        },
+        {
+          "question": "What's the maximum meeting size?",
+          "answer": "Meeting capacity depends on your deployment and package, with support available for larger organizational use cases."
+        },
+        {
+          "question": "How long does deployment take?",
+          "answer": "Deployment timing depends on hosting, branding, compliance, and integration requirements. Most timelines are planned after discovery."
+        },
+        {
+          "question": "Do you support Arabic for AI features?",
+          "answer": "Yes. Arabic-first workflows and AI features are part of the product experience for local teams."
+        },
+        {
+          "question": "What does pricing look like for a 1,000+ user organization?",
+          "answer": "Enterprise pricing is scoped based on users, deployment model, support level, and customization requirements."
+        }
+      ]
+    },
+    "centerStage": {
+      "eyebrow": "White-label customization",
+      "title": "Your brand, <highlight>center stage.</highlight>",
+      "description": "Don't just host a meeting - host an experience that feels unmistakably yours. Liblib Meet ships as a fully white-label platform you can shape down to the smallest detail.",
+      "imageAlt": "White-label meeting interface preview",
+      "items": [
+        {
+          "title": "Custom Subdomains",
+          "description": "meet.yourcompany.sa instead of a generic link"
+        },
+        {
+          "title": "Branded Waiting Rooms",
+          "description": "Greet guests with your logo, message, and music"
+        },
+        {
+          "title": "Visual Consistency",
+          "description": "Your colors, typefaces, and logo in every meeting detail"
+        },
+        {
+          "title": "Custom Mobile Apps",
+          "description": "Ship your own iOS and Android apps under your brand"
+        }
+      ]
+    },
+    "getStarted": {
+      "eyebrow": "Get Started",
+      "title": "Ready to take control of<br/>your meetings?",
+      "description": "Book a 15-minute consultation. We'll walk you through Liblib Meet on your own subdomain, with your own logo, before the call ends.",
+      "bookDemo": "Book a Demo",
+      "talkToSales": "Talk to Sales",
+      "note": "No credit card. No commitment. Just answers."
+    }
+  },
+  "footer": {
+    "description": "Liblib Meet is a white-label, Saudi-hosted enterprise video meetings platform. Built in Riyadh, trusted across the Kingdom.",
+    "hostedAlt": "Designed and hosted by Codesinc.",
+    "columns": [
+      {
+        "title": "Product",
+        "links": ["Features", "Security", "Pricing", "Integrations", "Mobile Apps", "Roadmap"]
+      },
+      {
+        "title": "Solutions",
+        "links": ["For Banks", "For Government", "For Healthcare", "For Education", "For Enterprise IT"]
+      },
+      {
+        "title": "Company",
+        "links": ["About", "Customers", "Careers", "Press", "Contact"]
+      },
+      {
+        "title": "Resources",
+        "links": ["Documentation", "PDPL Compliance", "Status", "Help Center", "Blog"]
+      }
+    ],
+    "socials": {
+      "instagram": "Instagram",
+      "tiktok": "TikTok",
+      "youtube": "YouTube",
+      "x": "X",
+      "linkedin": "LinkedIn"
+    },
+    "contacts": [
+      {
+        "label": "Mobile",
+        "value": "+966 53 799 2726"
+      },
+      {
+        "label": "Registration",
+        "value": "CR 7049477842"
+      },
+      {
+        "label": "Location",
+        "value": "Riyadh, Kingdom of Saudi Arabia"
+      },
+      {
+        "label": "Information",
+        "value": "info@liblib.sa"
+      }
+    ],
+    "copyright": "© 2026 Liblib. All rights reserved. Designed with pride for leading enterprises in the Kingdom of Saudi Arabia.",
+    "legalLinks": ["Privacy Policy", "Terms of Service", "PDPL Notice", "Cookie Settings"]
+  }
+}

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { fadeInUp, revealViewport } from '../animation/animation'
 import footerLogo from '../assets/images/footerLogo.png'
@@ -13,59 +14,35 @@ import tiktokIcon from '../assets/images/tiktok.png'
 import xIcon from '../assets/images/x.png'
 import youtubeIcon from '../assets/images/youtube.png'
 
-const footerColumns = [
-  {
-    title: 'Product',
-    links: ['Features', 'Security', 'Pricing', 'Integrations', 'Mobile Apps', 'Roadmap'],
-  },
-  {
-    title: 'Solutions',
-    links: ['For Banks', 'For Government', 'For Healthcare', 'For Education', 'For Enterprise IT'],
-  },
-  {
-    title: 'Company',
-    links: ['About', 'Customers', 'Careers', 'Press', 'Contact'],
-  },
-  {
-    title: 'Resources',
-    links: ['Documentation', 'PDPL Compliance', 'Status', 'Help Center', 'Blog'],
-  },
-]
-
 const socials = [
-  { label: 'Instagram', icon: instaIcon },
-  { label: 'TikTok', icon: tiktokIcon },
-  { label: 'YouTube', icon: youtubeIcon },
-  { label: 'X', icon: xIcon },
-  { label: 'LinkedIn', icon: linkdinIcon },
+  { key: 'instagram', icon: instaIcon },
+  { key: 'tiktok', icon: tiktokIcon },
+  { key: 'youtube', icon: youtubeIcon },
+  { key: 'x', icon: xIcon },
+  { key: 'linkedin', icon: linkdinIcon },
 ]
 
 const contacts = [
   {
-    label: 'Mobile',
-    value: '+966 53 799 2726',
     icon: phoneIcon,
   },
   {
-    label: 'Registration',
-    value: 'CR 7049477842',
     icon: hashIcon,
   },
   {
-    label: 'Location',
-    value: 'Riyadh, Kingdom of Saudi Arabia',
     icon: locationIcon,
   },
   {
-    label: 'Information',
-    value: 'info@liblib.sa',
     icon: mailIcon,
   },
 ]
 
-const legalLinks = ['Privacy Policy', 'Terms of Service', 'PDPL Notice', 'Cookie Settings']
-
 const Footer = () => {
+  const { t } = useTranslation()
+  const footerColumns = t('footer.columns', { returnObjects: true })
+  const translatedContacts = t('footer.contacts', { returnObjects: true })
+  const legalLinks = t('footer.legalLinks', { returnObjects: true })
+
   return (
     <motion.footer
       className="w-full bg-[#1b2944] px-4 py-8 text-white sm:px-6 lg:px-10 xl:px-14"
@@ -77,18 +54,17 @@ const Footer = () => {
       <div className="mx-auto w-full max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[minmax(220px,310px)_1fr] lg:gap-16">
           <div>
-            <img src={footerLogo} alt="Liblib" className="h-auto w-[79px]" />
+            <img src={footerLogo} alt={t('brand.liblib')} className="h-auto w-[79px]" />
             <p className="mt-5 max-w-[260px] text-[13px] font-medium leading-6 text-[#a9b3c5]">
-              Liblib Meet is a white-label, Saudi-hosted enterprise video meetings
-              platform. Built in Riyadh, trusted across the Kingdom.
+              {t('footer.description')}
             </p>
 
             <div className="mt-5 flex items-center gap-2.5">
-              {socials.map(({ label, icon }) => (
+              {socials.map(({ key, icon }) => (
                 <Link
-                  key={label}
+                  key={key}
                   to="/"
-                  aria-label={label}
+                  aria-label={t(`footer.socials.${key}`)}
                   className="flex size-9 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/16 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   <img src={icon} alt="" className="max-h-4 max-w-4" />
@@ -102,7 +78,7 @@ const Footer = () => {
             >
               <img
                 src={hostedImg}
-                alt="Designed and hosted by Codesinc."
+                alt={t('footer.hostedAlt')}
                 className="h-auto w-[244px] max-w-full"
               />
             </Link>
@@ -131,17 +107,17 @@ const Footer = () => {
 
         <div className="mt-9 border-t border-white/12 pt-7">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {contacts.map(({ label, value, icon }) => (
-              <div key={label} className="flex items-center gap-4">
+            {contacts.map(({ icon }, index) => (
+              <div key={translatedContacts[index].label} className="flex items-center gap-4">
                 <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-[#9f3d2f]/55">
                   <img src={icon} alt="" className="max-h-5 max-w-5" />
                 </span>
                 <span>
                   <span className="block text-[9px] font-extrabold uppercase tracking-[0.22em] text-[#75829a]">
-                    {label}
+                    {translatedContacts[index].label}
                   </span>
                   <span className="mt-1 block text-[13px] font-extrabold text-white">
-                    {value}
+                    {translatedContacts[index].value}
                   </span>
                 </span>
               </div>
@@ -150,14 +126,11 @@ const Footer = () => {
         </div>
 
         <div className="mt-7 flex flex-col gap-4 border-t border-white/12 pt-5 text-[11px] font-medium text-[#8290a7] md:flex-row md:items-center md:justify-between">
-          <p>
-            &copy; 2026 Liblib. All rights reserved. Designed with pride for leading
-            enterprises in the Kingdom of Saudi Arabia.
-          </p>
+          <p>{t('footer.copyright')}</p>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
             {legalLinks.map((link, index) => (
               <Link key={link} to="/" className="transition-colors hover:text-white">
-                {index > 0 && <span className="mr-3 text-[#5f6b80]">&bull;</span>}
+                {index > 0 && <span className="me-3 text-[#5f6b80]">&bull;</span>}
                 {link}
               </Link>
             ))}

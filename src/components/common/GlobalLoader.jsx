@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { loaderFade, scaleFade, smoothEase } from '../../animation/animation'
+import i18n from '../../i18n'
 import logo from '../../assets/images/logo.png'
 
 const GlobalLoader = () => {
@@ -17,7 +18,11 @@ const GlobalLoader = () => {
         initial="hidden"
         animate="visible"
       >
-        <img src={logo} alt="Liblib" className="h-auto w-24" />
+        <img
+          src={logo}
+          alt={i18n.t('loader.logoAlt', { defaultValue: 'Liblib' })}
+          className="h-auto w-24"
+        />
         <div className="h-1.5 w-36 overflow-hidden rounded-full bg-[#f4d5c5]">
           <motion.span
             className="block h-full rounded-full bg-[#fb5b22]"

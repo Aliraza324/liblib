@@ -1,10 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: 'DM Sans', sans-serif;
+  --font-arabic: 'Noto Kufi Arabic', sans-serif;
+}
+
+html {
+  text-size-adjust: 100%;
 }
 
 body {
   font-family: 'DM Sans', sans-serif;
+  direction: ltr;
+  text-align: start;
+}
+
+body[data-lang='ar'] {
+  font-family: 'Noto Kufi Arabic', 'DM Sans', sans-serif;
+  direction: rtl;
+}
+
+[dir='rtl'] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+[dir='rtl'] table {
+  text-align: start;
 }
