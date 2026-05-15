@@ -3,12 +3,14 @@ import { Heart, Video } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { fadeIn, fadeInDown, fadeInUp, scaleFade, staggerContainer } from '../../animation/animation'
 import arrowImg from '../../assets/images/arrow.png'
+import arabicHeroImg from '../../assets/images/arabic.png'
+import englishHeroImg from '../../assets/images/eng.png'
 import flagImg from '../../assets/images/flag.png'
-import heroImg from '../../assets/images/heroImg.png'
 
 const HeroSection = () => {
   const { i18n, t } = useTranslation()
   const isRtl = i18n.dir() === 'rtl'
+  const heroPreviewImg = isRtl ? arabicHeroImg : englishHeroImg
 
   return (
     <motion.section
@@ -66,7 +68,7 @@ const HeroSection = () => {
               >
                 {isRtl ? (
                   <>
-                    <span dir="ltr">{t('home.hero.titleLines.first')}</span>
+                    <span>{t('home.hero.titleLines.first')}</span>
                     <br />
                     <span>{t('home.hero.titleLines.second')}</span>
                   </>
@@ -171,7 +173,7 @@ const HeroSection = () => {
 
         <motion.div className="mt-7 sm:mt-10 lg:mt-12" variants={scaleFade}>
           <motion.img
-            src={heroImg}
+            src={heroPreviewImg}
             alt={t('home.hero.heroImageAlt')}
             className="mx-auto block w-full rounded-[18px]"
             whileHover={{ scale: 1.01 }}

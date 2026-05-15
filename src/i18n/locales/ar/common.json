@@ -31,7 +31,7 @@
       },
       "title": "تطبيق ماي ميت",
       "titleLines": {
-        "first": "MyMeet",
+        "first": "ماي ميت",
         "second": "تطبيق"
       },
       "startMeeting": "ابدأ اجتماعاً",
@@ -67,24 +67,24 @@
       ]
     },
     "whyChoose": {
-      "title": "لماذا<br/>تختار<br/>تطبيق<br/>ماي ميت",
-      "description": "ما الذي يجعل تطبيق <highlight>اجتماعاتك</highlight><br/>مختلفاً",
+      "title": "لماذا تختار تطبيق إجتماعاتي",
+      "description": "ما الذي يجعل تطبيق <highlight>إجتماعاتك</highlight> مختلفاً",
       "cards": [
         {
           "badge": "يعمل دون اتصال",
-          "title": "لا<br/>إنترنت؟<br/><highlight>لا</highlight> مشكلة."
+          "title": "لا إنترنت؟ <highlight>لا</highlight> مشكلة."
         },
         {
-          "title": "تطبيقك<br/>بهويتك<br/><highlight>البصرية</highlight>",
-          "description": "اجعله خاصاً بك مع<br/>هوية مخصصة"
+          "title": "تطبيقك بهويتك <highlight>البصرية</highlight>",
+          "description": "اجعله خاصاً بك مع هوية مخصصة"
         },
         {
           "badge": "شبكة خاصة",
-          "title": "يمكن نشره على <highlight>شبكتك الخاصة</highlight><br/>بكل مرونة"
+          "title": "يمكن نشره على <highlight>شبكتك الخاصة</highlight> بكل مرونة"
         },
         {
-          "title": "متوافق مع<br/>نظام <highlight>حماية</highlight><br/><highlight>البيانات</highlight><br/>الشخصية",
-          "description": "استعرض أمثلة عملية<br/>مصممة لمتطلبات<br/>فرقك التقنية."
+          "title": "متوافق مع نظام <highlight>حماية</highlight> <highlight>البيانات</highlight> الشخصية",
+          "description": "استعرض أمثلة عملية مصممة لمتطلبات فرقك التقنية."
         }
       ]
     },

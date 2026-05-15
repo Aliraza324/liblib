@@ -37,6 +37,7 @@ const cards = [
 const WhyChoose = () => {
   const { i18n, t } = useTranslation()
   const isRtl = i18n.dir() === 'rtl'
+  const lineBreak = isRtl ? <span> </span> : <br />
 
   return (
     <motion.section
@@ -64,7 +65,7 @@ const WhyChoose = () => {
                 <Trans
                   i18nKey="home.whyChoose.title"
                   components={{
-                    br: <br />,
+                    br: lineBreak,
                   }}
                 />
               </h2>
@@ -76,7 +77,7 @@ const WhyChoose = () => {
                 <Trans
                   i18nKey="home.whyChoose.description"
                   components={{
-                    br: <br />,
+                    br: lineBreak,
                     highlight: <span className="text-[#fb5b22]" />,
                   }}
                 />
@@ -123,7 +124,7 @@ const WhyChoose = () => {
                 <Trans
                   i18nKey={`home.whyChoose.cards.${index}.title`}
                   components={{
-                    br: <br />,
+                    br: lineBreak,
                     highlight: <span className="text-[#fb5b22]" />,
                   }}
                 />
@@ -137,7 +138,7 @@ const WhyChoose = () => {
                   <Trans
                     i18nKey={`home.whyChoose.cards.${index}.description`}
                     components={{
-                      br: <br />,
+                      br: lineBreak,
                     }}
                   />
                 </p>
