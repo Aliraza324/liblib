@@ -28,3 +28,28 @@ body[data-lang='ar'] {
 [dir='rtl'] table {
   text-align: start;
 }
+
+@media (max-width: 767px) {
+  .comparison-table-scroll {
+    scrollbar-color: #fb5b22 #fff4ec;
+    scrollbar-width: thin;
+  }
+
+  .comparison-table-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .comparison-table-scroll::-webkit-scrollbar-track {
+    background: #fff4ec;
+  }
+
+  .comparison-table-scroll::-webkit-scrollbar-thumb {
+    background: #fb5b22;
+    border: 2px solid #fff4ec;
+    border-radius: 999px;
+  }
+
+  .comparison-table-scroll::-webkit-scrollbar-thumb:hover {
+    background: #e34f1d;
+  }
+}
