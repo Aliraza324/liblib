@@ -71,7 +71,7 @@ const MyMeet = () => {
           className="mx-auto mt-7 w-full max-w-7xl overflow-hidden rounded-[16px] border border-[#f0dfd0] bg-white shadow-[0_18px_30px_rgba(56,39,28,0.10)] sm:mt-9"
           variants={scaleFade}
         >
-          <div className="overflow-x-auto">
+          <div className="comparison-table-scroll overflow-x-auto">
             <table
               className={`w-full min-w-[720px] border-collapse text-start text-[13px] text-[#2d2a28] ${
                 isRtl ? 'leading-[1.55]' : 'leading-[1.35]'
